@@ -1,5 +1,5 @@
 fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
+    .then(value => value.json())
     .then((value) => {
         let data = value
         console.log(data);
@@ -11,7 +11,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
             let btn = document.createElement('button');
             btn.innerText = 'About user';
             let a = document.createElement('a');
-            a.href = 'user-details.html?id=' + user.id;
+            a.href = '../user-details/user-details.html?id=' + user.id;
             a.appendChild(btn);
             div.append(h2, a);
             document.body.appendChild(div);
