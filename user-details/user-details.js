@@ -1,10 +1,10 @@
 let url = new URL(location.href);
 let id = url.searchParams.get('id');
 
-
-fetch('https://jsonplaceholder.typicode.com/users/' + id)
-    .then(value => value.json())
-    .then(value => {
+function requestUsersDetails() {
+    return fetch('https://jsonplaceholder.typicode.com/users/' + id)
+        .then(value => value.json())
+        .then(value => {
 
             //------------user info(details)----------------
 
@@ -79,32 +79,34 @@ fetch('https://jsonplaceholder.typicode.com/users/' + id)
 
             //------------user info(details)----------------
 
-});
+        });
+}
+
 
 
 //------------button "Show posts of current user"----------------
+requestUsersDetails()
+    .then(value => {
+        let divShowHidePostsButton = document.createElement('div');
+        divShowHidePostsButton.classList.add('divButton');
 
+        let btnShowHidePosts = document.createElement('div');
+        btnShowHidePosts.classList.add('btnShowHidePosts')
 
-let divShowHidePostsButton = document.createElement('div');
-divShowHidePostsButton.classList.add('divButton');
+        let divPostsTitle = document.createElement('div');
+        divPostsTitle.classList.add('divPostsTitle');
 
-let btnShowHidePosts = document.createElement('div');
-btnShowHidePosts.classList.add('btnShowHidePosts')
+        let btnShowPosts = document.createElement('button');
+        btnShowPosts.innerText = 'Show posts of current user';
 
-let divPostsTitle = document.createElement('div');
-divPostsTitle.classList.add('divPostsTitle');
+        let btnHidePosts = document.createElement('button');
+        btnHidePosts.innerText = 'Hide posts of current user';
+        btnHidePosts.style.display = 'none';
 
-let btnShowPosts = document.createElement('button');
-btnShowPosts.innerText = 'Show posts of current user';
-
-let btnHidePosts = document.createElement('button');
-btnHidePosts.innerText = 'Hide posts of current user';
-btnHidePosts.style.display = 'none';
-
-fetch('https://jsonplaceholder.typicode.com/users/' + id + '/posts')
-    .then(value => value.json())
-    .then(posts => {
-            for (const post of posts) {
+        fetch('https://jsonplaceholder.typicode.com/users/' + id + '/posts')
+            .then(value => value.json())
+            .then(posts => {
+                for (const post of posts) {
                     let divPostTitle = document.createElement('div');
                     let postTitle = document.createElement('h2');
                     postTitle.innerText = post.title;
@@ -115,28 +117,31 @@ fetch('https://jsonplaceholder.typicode.com/users/' + id + '/posts')
                     a.href = '../post-details/post-details.html?post=' + JSON.stringify(post);
                     divPostTitle.append(postTitle, a);
                     divPostsTitle.append(divPostTitle);
-            }
+                }
+            });
+
+        divPostsTitle.style.display = 'none';
+
+        btnShowPosts.onclick = function () {
+            divPostsTitle.style.display = 'block'
+            btnShowPosts.style.display = 'none';
+            btnHidePosts.style.display = 'block';
+        };
+
+        btnHidePosts.onclick = function () {
+            divPostsTitle.style.display = 'none';
+            btnHidePosts.style.display = 'none';
+            btnShowPosts.style.display = 'block';
+
+        };
+
+
+        btnShowHidePosts.append(btnShowPosts, btnHidePosts);
+        divShowHidePostsButton.append(btnShowHidePosts, divPostsTitle);
+        document.body.appendChild(divShowHidePostsButton);
     });
 
-divPostsTitle.style.display = 'none';
 
-btnShowPosts.onclick = function () {
-    divPostsTitle.style.display = 'block'
-    btnShowPosts.style.display = 'none';
-    btnHidePosts.style.display = 'block';
-};
-
-btnHidePosts.onclick = function () {
-    divPostsTitle.style.display = 'none';
-    btnHidePosts.style.display = 'none';
-    btnShowPosts.style.display = 'block';
-
-};
-
-
-btnShowHidePosts.append(btnShowPosts, btnHidePosts);
-divShowHidePostsButton.append(btnShowHidePosts, divPostsTitle);
-document.body.appendChild(divShowHidePostsButton);
 
 
 //------------button "Show posts of current user"----------------

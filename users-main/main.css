@@ -1,0 +1,25 @@
+.divMainUsers{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: floralwhite;
+}
+.userBox{
+    flex: 49%;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 1.5rem;
+}
+.userBox button{
+    width: 30%;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: white;
+    transition: 0.2s;
+    border-radius: 0.3rem;
+}
+.userBox button:hover{
+    background-color: #d9d9d9;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 1.05rem;
+}
