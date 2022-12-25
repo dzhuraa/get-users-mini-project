@@ -1,10 +1,15 @@
+body{
+    margin: 0;
+    padding: 0;
+}
 .divMainUsers{
+    height: 100vh;
     display: flex;
     flex-wrap: wrap;
     background-color: floralwhite;
 }
 .userBox{
-    flex: 49%;
+    flex: 50%;
     align-items: center;
     text-align: center;
     padding-bottom: 1.5rem;

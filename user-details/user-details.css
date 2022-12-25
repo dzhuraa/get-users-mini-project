@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.divUserDetails{
+    padding-left: 20%;
+    background-color: floralwhite;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+}
+.divButton{
+    background-color: floralwhite;
+    padding-bottom: 1.5rem;
+}
+.btnShowHidePosts{
+    display: flex;
+    justify-content: center;
+}
+.btnShowHidePosts button{
+    width: 90%;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: white;
+    transition: 0.2s;
+    border-radius: 0.3rem;
+}
+.btnShowHidePosts button:hover{
+    background-color: #d9d9d9;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 1.05rem;
+}
+.divPostsTitle{
+    flex-wrap: wrap;
+}
+.divPostsTitle div{
+    flex: 20%;
+    text-align: center;
+}
+.divPostsTitle h2{
+    text-transform: capitalize;
+}
+.divPostsTitle div a button{
+    width: 50%;
+    height: 2.2rem;
+    font-size: 0.8rem;
+    background-color: white;
+    transition: 0.2s;
+    border-radius: 0.3rem;
+}
+.divPostsTitle div a button:hover{
+    background-color: #d9d9d9;
+    cursor: pointer;
+    transition: 0.2s;
+}

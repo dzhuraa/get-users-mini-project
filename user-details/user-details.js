@@ -12,13 +12,13 @@ function requestUsersDetails() {
             let divUserDetails = document.createElement('div');
             divUserDetails.classList.add('divUserDetails');
 
-            let id = document.createElement('h2');
+            let id = document.createElement('h3');
             id.innerText = 'User ID: ' + `${value.id}`;
 
-            let name = document.createElement('h2');
+            let name = document.createElement('h3');
             name.innerText = 'Name: ' + `${value.name}`;
 
-            let username = document.createElement('h2');
+            let username = document.createElement('h3');
             username.innerText = 'Username: ' + `${value.username}`;
 
             let email = document.createElement('h3');
@@ -27,25 +27,25 @@ function requestUsersDetails() {
             let divAddress = document.createElement('div');
             divAddress.classList.add('address');
 
-            let street = document.createElement('h5');
+            let street = document.createElement('h3');
             street.innerText = 'Street: ' + `${value.address.street}`;
 
-            let suite = document.createElement('h5');
+            let suite = document.createElement('h3');
             suite.innerText = 'Suite: ' + `${value.address.suite}`;
 
-            let city = document.createElement('h5');
+            let city = document.createElement('h3');
             city.innerText = 'City: ' + `${value.address.city}`;
 
-            let zipcode = document.createElement('h5');
+            let zipcode = document.createElement('h3');
             zipcode.innerText = 'Zipcode: ' + `${value.address.zipcode}`;
 
             let divGeo = document.createElement('div');
             divGeo.classList.add('geo')
 
-            let lat = document.createElement('h5');
+            let lat = document.createElement('h3');
             lat.innerText = 'Lat: ' + `${value.address.geo.lat}`;
 
-            let lng = document.createElement('h5');
+            let lng = document.createElement('h3');
             lng.innerText = 'Lng: ' + `${value.address.geo.lng}`;
 
             divGeo.append(lat, lng);
@@ -61,13 +61,13 @@ function requestUsersDetails() {
             let divCompany = document.createElement('div');
             divCompany.classList.add('company');
 
-            let companyName = document.createElement('h5');
+            let companyName = document.createElement('h3');
             companyName.innerText = 'Company: ' + `${value.company.name}`;
 
-            let catchPhrase = document.createElement('h5');
+            let catchPhrase = document.createElement('h3');
             catchPhrase.innerText = 'Catch phrase: ' + `${value.company.catchPhrase}`;
 
-            let bs = document.createElement('h5');
+            let bs = document.createElement('h3');
             bs.innerText = 'Bs: ' + `${value.company.bs}`;
 
             divCompany.append(companyName, catchPhrase, bs);
@@ -124,7 +124,7 @@ function createBTNAndShowPosts() {
     divPostsTitle.style.display = 'none';
 
     btnShowPosts.onclick = function () {
-        divPostsTitle.style.display = 'block'
+        divPostsTitle.style.display = 'flex'
         btnShowPosts.style.display = 'none';
         btnHidePosts.style.display = 'block';
     };
