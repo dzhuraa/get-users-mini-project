@@ -13,62 +13,62 @@ fetch('https://jsonplaceholder.typicode.com/users/' + id)
             divUserDetails.classList.add('divUserDetails');
 
             let id = document.createElement('h2');
-            id.innerText = `${value.id}`;
+            id.innerText = 'User ID: ' + `${value.id}`;
 
             let name = document.createElement('h2');
-            name.innerText = `${value.name}`;
+            name.innerText = 'Name: ' + `${value.name}`;
 
             let username = document.createElement('h2');
-            username.innerText = `${value.username}`;
+            username.innerText = 'Username: ' + `${value.username}`;
 
             let email = document.createElement('h3');
-            email.innerText = `${value.email}`;
+            email.innerText = 'Email: ' + `${value.email}`;
 
             let divAddress = document.createElement('div');
             divAddress.classList.add('address');
 
             let street = document.createElement('h5');
-            street.innerText = `${value.address.street}`;
+            street.innerText = 'Street: ' + `${value.address.street}`;
 
             let suite = document.createElement('h5');
-            suite.innerText = `${value.address.suite}`;
+            suite.innerText = 'Suite: ' + `${value.address.suite}`;
 
             let city = document.createElement('h5');
-            city.innerText = `${value.address.city}`;
+            city.innerText = 'City: ' + `${value.address.city}`;
 
             let zipcode = document.createElement('h5');
-            zipcode.innerText = `${value.address.zipcode}`;
+            zipcode.innerText = 'Zipcode: ' + `${value.address.zipcode}`;
 
             let divGeo = document.createElement('div');
             divGeo.classList.add('geo')
 
             let lat = document.createElement('h5');
-            lat.innerText = `${value.address.geo.lat}`;
+            lat.innerText = 'Lat: ' + `${value.address.geo.lat}`;
 
             let lng = document.createElement('h5');
-            lng.innerText = `${value.address.geo.lng}`;
+            lng.innerText = 'Lng: ' + `${value.address.geo.lng}`;
 
             divGeo.append(lat, lng);
 
             divAddress.append(street, suite, city, zipcode, divGeo);
 
             let phone = document.createElement('h3');
-            phone.innerText = `${value.phone}`;
+            phone.innerText = 'Phone: ' + `${value.phone}`;
 
             let website = document.createElement('h3');
-            website.innerText = `${value.website}`;
+            website.innerText = 'Website: ' + `${value.website}`;
 
             let divCompany = document.createElement('div');
             divCompany.classList.add('company');
 
             let companyName = document.createElement('h5');
-            companyName.innerText = `${value.company.name}`;
+            companyName.innerText = 'Company: ' + `${value.company.name}`;
 
             let catchPhrase = document.createElement('h5');
-            catchPhrase.innerText = `${value.company.catchPhrase}`;
+            catchPhrase.innerText = 'Catch phrase: ' + `${value.company.catchPhrase}`;
 
             let bs = document.createElement('h5');
-            bs.innerText = `${value.company.bs}`;
+            bs.innerText = 'Bs: ' + `${value.company.bs}`;
 
             divCompany.append(companyName, catchPhrase, bs);
 
@@ -110,8 +110,9 @@ fetch('https://jsonplaceholder.typicode.com/users/' + id + '/posts')
                     postTitle.innerText = post.title;
                     let a = document.createElement('a');
                     let btn = document.createElement('button');
+                    btn.innerText = 'Read post';
                     a.append(btn);
-                    a.href = ''
+                    a.href = '../post-details/post-details.html?post=' + JSON.stringify(post);
                     divPostTitle.append(postTitle, a);
                     divPostsTitle.append(divPostTitle);
             }
