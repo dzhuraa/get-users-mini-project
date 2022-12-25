@@ -27,22 +27,23 @@ document.body.append(div);
 fetch('https://jsonplaceholder.typicode.com/posts/' + parse.id + '/comments')
     .then(value => value.json())
     .then(comments => {
+            let divContainerComments = document.createElement('div');
+            divContainerComments.classList.add('divContainerComments');
+            let titleCOMMENTS = document.createElement('h2');
+            titleCOMMENTS.classList.add('titleCOMMENTS');
+            titleCOMMENTS.innerText = 'Comments:';
+            document.body.appendChild(titleCOMMENTS);
             for (const comment of comments) {
-                    let divContainerComments = document.createElement('div');
-                    divContainerComments.classList.add('divContainerComments');
-                    let titleCOMMENTS = document.createElement('h2');
-                    titleCOMMENTS.classList.add('titleCOMMENTS');
-                    titleCOMMENTS.innerText = 'Comments:'
                     let divComments = document.createElement('div');
                     divComments.classList.add('divComments');
                     let titleOfComment = document.createElement('h2');
                     titleOfComment.classList.add('titleOfComment');
-                    titleOfComment.innerText = 'Name: ' + comment.name;
+                    titleOfComment.innerText = comment.name;
                     let bodyOfComment = document.createElement('p');
                     bodyOfComment.classList.add('bodyOfComment');
                     bodyOfComment.innerText = comment.body;
                     divComments.append(titleOfComment, bodyOfComment);
-                    divContainerComments.append(divComments, titleCOMMENTS);
+                    divContainerComments.append(divComments);
                     document.body.appendChild(divContainerComments);
             }
     });

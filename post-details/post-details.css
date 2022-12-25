@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.div-main-post-details{
+    background-color: floralwhite;
+    padding-top: 1.5%;
+    padding-left: 20%;
+    padding-bottom: 1.5%;
+}
+.titleCOMMENTS{
+    margin: 0;
+    text-align: center;
+    background-color: floralwhite;
+}
+.divContainerComments{
+    padding-top: 1.5%;
+    padding-left: 1.5%;
+    background-color: floralwhite;
+    display: flex;
+    flex-wrap: wrap;
+}
+.divContainerComments div{
+    flex: 25%;
+    text-align: center;
+}
